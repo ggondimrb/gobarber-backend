@@ -14,6 +14,8 @@ class Mail {
       security,
       auth: auth.user ? auth : null
     });
+
+    this.configureTemplates();
   }
 
   configureTemplates() {
@@ -34,6 +36,7 @@ class Mail {
   }
 
   sendMail(message) {
+    console.log(message);
     return this.transporter.sendMail({
       ...mailConfig.default,
       ...message
